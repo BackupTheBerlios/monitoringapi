@@ -1,0 +1,33 @@
+MAPI_MODULE_DIR=@MAPI_MODULE_DIR@
+KVERS=@KVERS@
+KSRC=@KSRC@
+
+include $(MAPI_MODULE_DIR)/.config
+
+EXTRA_CFLAGS=@MODCFLAGS@ -D__NO_VERSION__ -I$(MAPI_MODULE_DIR)/src/include -Iinclude
+
+KSERIES=@KSERIES@
+
+ifeq "$(KSERIES)" "2.6"
+
+EXTRA_CFLAGS += -I$(src)/include
+
+obj-$(CONFIG_MAPI_BPF_FILTER)		+= bpf.o
+obj-$(CONFIG_MAPI_CACHED_BPF_FILTER)	+= cached_bpf.o
+obj-$(CONFIG_MAPI_HASH)			+= hash.o
+obj-$(CONFIG_MAPI_PKT_TYPE)		+= pkt_type.o
+
+else
+
+obj-$(CONFIG_MAPI_BPF_FILTER)		+= bpf.o
+obj-$(CONFIG_MAPI_CACHED_BPF_FILTER)	+= cached_bpf.o
+obj-$(CONFIG_MAPI_HASH)			+= hash.o
+obj-$(CONFIG_MAPI_PKT_TYPE)		+= pkt_type.o
+
+TOPDIR := $(KSRC)
+CONFIG_SHELL := TOPDIR=$(KSRC) /bin/bash
+include $(KSRC)/Rules.make
+
+endif
+
+# FIXME: deps

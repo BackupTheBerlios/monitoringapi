@@ -1,0 +1,319 @@
+#
+# MAPI configuration
+#
+
+config MODULES
+        bool "Enable loadable module support"
+	default y
+        help
+          Kernel modules are small pieces of compiled code which can be
+          inserted in or removed from the running kernel, using the programs
+          insmod and rmmod. This is described in the file
+          <file:Documentation/modules.txt>, including the fact that you have
+          to say "make modules" in order to compile the modules that you chose
+          during kernel configuration.  Modules can be device drivers, file
+          systems, binary executable formats, and so on. If you think that you
+          may want to make use of modules with this kernel in the future, then
+          say Y here.  If unsure, say Y.
+
+menu "Monitoring API (MAPI) support"
+
+config MAPI
+	tristate "MAPI socket"
+	default m
+	help
+
+	  The MAPI protocol is a new protocol used in cases where 
+	  "Packet socket is not enough".
+	  
+	  This driver is also available as a module called pf_mapi ( =
+	  code which can be inserted in and removed from the running kernel
+	  whenever you want).  If you want to compile it as a module, say M
+	  here and read <file:Documentation/modules.txt>; 
+
+	  If unsure, say N.
+
+config MAPI_MMAP
+	bool "MAPI socket: mmapped IO"
+	depends on MAPI
+	default y
+	help
+	  If you say Y here, the MAPI protocol driver will use an IO
+	  mechanism that results in faster communication.
+
+	  If unsure, say N.
+
+config MAPI_PROFILING
+	tristate "Profile MAPI functions"
+	depends on MAPI
+	default y
+	help
+	  
+	  Enables the manipulation of processor performance counters.
+	  
+	  If unsure, say N.
+
+config MAPI_DEBUG
+	bool "MAPI debbuging support"
+	depends on MAPI
+	default y
+	help
+	  
+	  If unsure, say N.	  
+
+menu "MAPI predefined functions"
+
+menu "Count"
+
+config MAPI_COUNT_PACKETS
+	tristate "Count packets"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_COUNT_BYTES
+	tristate "Count bytes"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_PACKETS_IN_INTERVAL
+	tristate "Packets in interval"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_BYTES_IN_INTERVAL
+	tristate "Bytes in interval"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_PACKET_DISTRIBUTION
+	tristate "Packet distribution"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Search"
+
+config MAPI_SUBSTRING_SEARCH
+	tristate "Boyer moore"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_EXB
+	tristate "EXB"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Flow"
+
+config MAPI_SUBFLOW
+	tristate "Subflow"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_FLOW_KEY
+	tristate "Flow key"
+	depends on MAPI_SUBFLOW
+	default m
+	help
+
+config MAPI_FLOW_REPORT
+	tristate "Flow report"
+	depends on MAPI_SUBFLOW
+	default m
+	help
+
+config MAPI_FLOW_RAW
+	tristate "Flow raw"
+	depends on MAPI_SUBFLOW
+	default m
+	help
+
+endmenu
+
+
+menu "Cook"
+
+config MAPI_COOK_IP
+	tristate "Cook IP"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_COOK_UDP
+	tristate "Cook UDP"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Meter"
+
+config MAPI_METER
+	tristate "Meter"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_BAND_METER
+	tristate "Bandwidth meter"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Check"
+
+config MAPI_CHECK_IP_HDR
+	tristate "Check IP header"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_CHECK_UDP_HDR
+	tristate "Check UDP header"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_CHECK_TCP_HDR
+	tristate "Check TCP header"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Print"
+
+config MAPI_PRINT_ETHER
+	tristate "Print Ethernet header"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_PRINT_IP
+	tristate "Print IP header"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Performance"
+
+config MAPI_SET_PERF_COUNTER
+	tristate "Set performance counter"
+	depends on MAPI_PROFILING
+	default m
+	help
+
+config MAPI_ACCUM_PERF_COUNTER
+	tristate "Accumulate performance counter"
+	depends on MAPI_PROFILING
+	default m
+	help
+
+config MAPI_SET_CYCLE_COUNTER
+	tristate "Set cycle counter"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_ACCUM_CYCLE_COUNTER
+	tristate "Accumulate cycle counter"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Filter"
+
+config MAPI_BPF_FILTER
+	tristate "BPF filter"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_CACHED_BPF_FILTER
+	tristate "Cached BPF filter"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_PKT_TYPE
+	tristate "Packet type"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_HASH
+	tristate "Rotating and additive hash"
+	depends on MAPI
+	default m
+	help
+
+endmenu
+
+menu "Tree"
+
+config MAPI_DECIDE
+	tristate "Decide"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_DECIDE_BPF_HOOK
+	tristate "Decide BPF hook"
+	depends on MAPI_DECIDE
+	default m
+	help
+
+config MAPI_DECIDE_ACTION_HOOK
+	tristate "Decide ACTION hook"
+	depends on MAPI_DECIDE
+	default m
+	help
+
+config MAPI_DECIDE_TEE_HOOK
+	tristate "Decide TEE hook"
+	depends on MAPI_DECIDE
+	default m
+	help
+
+endmenu
+
+config MAPI_PACKET_SAVE
+	tristate "Packet save"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_SAMPLE_PACKETS
+	tristate "Sample packets"
+	depends on MAPI
+	default m
+	help
+
+config MAPI_LOGGING
+	tristate "Logging"
+	depends on MAPI
+	default n
+	help
+
+endmenu
+
+endmenu

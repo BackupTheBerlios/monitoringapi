@@ -1,0 +1,34 @@
+include Makefile.color
+
+VERBOSE = 0
+
+ifeq ($(VERBOSE),0)
+	Q = @
+	quiet = quiet_
+else
+	Q =
+	quiet = 
+endif
+
+ifeq ($(strip $(TOPDIR)),)
+	TOPDIR := $(CURDIR)
+endif
+
+cmd = @$(if $(subst $(TOPDIR)/,,$($(quiet)cmd_$(1))),$(subst $(TOPDIR)/,,echo -e '  $($(quiet)cmd_$(1))') &&) $(cmd_$(1))
+
+ifneq ($(TOPDIR),$(CURDIR))
+
+	target_dir = $(subst $(TOPDIR)/,,$(CURDIR))/
+else
+	target_dir = 
+endif
+
+cmd_cc = $(CC) $(CFLAGS) $^ $(2) -o $@
+quiet_cmd_cc = CC   $(target_dir)$(call set_color,LIGHT_CYAN,$@)
+
+cmd_ld = $(LD) $(LDFLAGS) $< -o $@
+quiet_cmd_ld = LD   $(target_dir)$(call set_color,LIGHT_RED,$@)
+
+cmd_rm = \rm -f $(2)
+colored_quiet_cmd_rm = $(foreach rm_file,$(2),$(call set_color,GREEN,$(rm_file)))
+quiet_cmd_rm = $(addsuffix ' ',$(addprefix RM   $(target_dir),$(addsuffix \n,$(colored_quiet_cmd_rm)))\c)

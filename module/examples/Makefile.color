@@ -1,0 +1,76 @@
+# Author:	Konstantinos Xinidis, <xinidis@csd.uoc.gr>
+#
+#	This program is free software; you can redistribute it and/or
+#	modify it under the terms of the GNU General Public License
+#	as published by the Free Software Foundation; either version
+#	2 of the License, or (at your option) any later version.
+      
+ifneq ($(wildcard $(CONSOLETYPE)),)
+	TYPE = $(shell $(CONSOLETYPE))
+else
+endif
+
+ifneq ($(strip $(TYPE)),"serial")
+	ESCAPE_BEGIN = $(shell echo -en "\\033[")
+	ESCAPE_END = $(shell echo -en "m")
+	
+	SET_COLOR_NORMAL = $(ESCAPE_BEGIN)$(shell echo -en "0;39")$(ESCAPE_END)
+
+	SET_COLOR_BLACK = $(ESCAPE_BEGIN)$(shell echo -en "0;30")$(ESCAPE_END)
+	SET_COLOR_BLUE = $(ESCAPE_BEGIN)$(shell echo -en "0;34")$(ESCAPE_END)
+	SET_COLOR_GREEN = $(ESCAPE_BEGIN)$(shell echo -en "0;32")$(ESCAPE_END)
+	SET_COLOR_CYAN = $(ESCAPE_BEGIN)$(shell echo -en "0;36")$(ESCAPE_END)
+	SET_COLOR_RED = $(ESCAPE_BEGIN)$(shell echo -en "0;31")$(ESCAPE_END)
+	SET_COLOR_PURPLE = $(ESCAPE_BEGIN)$(shell echo -en "0;35")$(ESCAPE_END)
+	SET_COLOR_BROWN = $(ESCAPE_BEGIN)$(shell echo -en "0;33")$(ESCAPE_END)
+	SET_COLOR_LIGHT_GRAY = $(ESCAPE_BEGIN)$(shell echo -en "0;37")$(ESCAPE_END)
+	SET_COLOR_DARK_GRAY = $(ESCAPE_BEGIN)$(shell echo -en "1;30")$(ESCAPE_END)
+	SET_COLOR_LIGHT_BLUE = $(ESCAPE_BEGIN)$(shell echo -en "1;34")$(ESCAPE_END)
+	SET_COLOR_LIGHT_GREEN = $(ESCAPE_BEGIN)$(shell echo -en "1;32")$(ESCAPE_END)
+	SET_COLOR_LIGHT_CYAN = $(ESCAPE_BEGIN)$(shell echo -en "1;36")$(ESCAPE_END)
+	SET_COLOR_LIGHT_RED = $(ESCAPE_BEGIN)$(shell echo -en "1;31")$(ESCAPE_END)
+	SET_COLOR_LIGHT_PURPLE = $(ESCAPE_BEGIN)$(shell echo -en "1;35")$(ESCAPE_END)
+	SET_COLOR_YELLOW = $(ESCAPE_BEGIN)$(shell echo -en "1;33")$(ESCAPE_END)
+	SET_COLOR_WHITE = $(ESCAPE_BEGIN)$(shell echo -en "1;37")$(ESCAPE_END)
+	
+	SET_COLOR_RED_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;41")$(ESCAPE_END)
+	SET_COLOR_GREEN_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;42")$(ESCAPE_END)
+	SET_COLOR_YELLOW_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;43")$(ESCAPE_END)
+	SET_COLOR_BLUE_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;44")$(ESCAPE_END)
+	SET_COLOR_PURPLE_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;45")$(ESCAPE_END)
+	SET_COLOR_CYAN_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;46")$(ESCAPE_END)
+	SET_COLOR_GRAY_BACKGROUND = $(ESCAPE_BEGIN)$(shell echo -en "0;47")$(ESCAPE_END)
+else
+	ESCAPE_BEGIN = 
+	ESCAPE_END = 
+	
+	SET_COLOR_NORMAL = 
+
+	SET_COLOR_BLACK = 
+	SET_COLOR_BLUE = 
+	SET_COLOR_GREEN = 
+	SET_COLOR_CYAN = 
+	SET_COLOR_RED = 
+	SET_COLOR_PURPLE = 
+	SET_COLOR_BROWN = 
+	SET_COLOR_LIGHT_GRAY = 
+	SET_COLOR_DARK_GRAY = 
+	SET_COLOR_LIGHT_BLUE =
+	SET_COLOR_LIGHT_GREEN = 
+	SET_COLOR_LIGHT_CYAN = 
+	SET_COLOR_LIGHT_RED = 
+	SET_COLOR_LIGHT_PURPLE = 
+	SET_COLOR_YELLOW = 
+	SET_COLOR_WHITE = 
+	
+	SET_COLOR_RED_BACKGROUND = 
+	SET_COLOR_GREEN_BACKGROUND = 
+	SET_COLOR_YELLOW_BACKGROUND = 
+	SET_COLOR_BLUE_BACKGROUND = 
+	SET_COLOR_PURPLE_BACKGROUND = 
+	SET_COLOR_CYAN_BACKGROUND = 
+	SET_COLOR_GRAY_BACKGROUND = 
+
+endif
+
+set_color = $(SET_COLOR_$(1))$(2)$(SET_COLOR_NORMAL)

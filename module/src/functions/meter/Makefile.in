@@ -1,0 +1,27 @@
+MAPI_MODULE_DIR=@MAPI_MODULE_DIR@
+KVERS=@KVERS@
+KSRC=@KSRC@
+
+include $(MAPI_MODULE_DIR)/.config
+
+EXTRA_CFLAGS=@MODCFLAGS@ -D__NO_VERSION__ -I$(MAPI_MODULE_DIR)/src/include
+
+KSERIES=@KSERIES@
+
+ifeq "$(KSERIES)" "2.6"
+
+obj-$(CONFIG_MAPI_BAND_METER)	+= band_meter.o 
+obj-$(CONFIG_MAPI_METER)	+= meter.o
+
+else
+
+obj-$(CONFIG_MAPI_BAND_METER)	+= band_meter.o 
+obj-$(CONFIG_MAPI_METER)	+= meter.o
+
+TOPDIR := $(KSRC)
+CONFIG_SHELL := TOPDIR=$(KSRC) /bin/bash
+include $(KSRC)/Rules.make
+
+endif
+
+# FIXME: deps

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta name="generator"
+ content="HTML Tidy for Linux/x86 (vers 1st February 2003), see www.w3.org">
+  <title>Monitoring API, TODO</title>
+  <link rel="STYLESHEET" type="text/css" href="mapi.css">
+  <style type="text/css">
+    span.q { font-weight : bold }
+    div.a { margin-bottom: 1em }
+    </style>
+  <meta name="author" content="Konstantinos Xinidis">
+</head>
+<body>
+<h1>TODO<br>
+</h1>
+<ul>
+</ul>
+<table border="1" cellpadding="5" cellspacing="0" summary=""
+ style="width: 90%; text-align: left; margin-left: auto; margin-right: auto;">
+  <tbody>
+    <tr>
+      <th><a name="requirements">Kernel Modules</a></th>
+    </tr>
+    <tr>
+      <td>
+      <table cellpadding="2" cellspacing="2" border="1"
+ style="text-align: left; width: 90%;">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">TCP reassembly<br>
+            </td>
+            <td style="vertical-align: top;">Remove duplicate packets,
+reorder packets and generally do everything TCP does.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a
+ href="http://www.research.att.com/projects/trajsamp/">Trajectory
+sampling</a><br>
+            </td>
+            <td style="vertical-align: top;"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">MAPI security module<br>
+            </td>
+            <td style="vertical-align: top;">Control who is capable of
+loading new functions. This module uses <a
+ href="http://lsm.immunix.org/">Linux Security Module</a> framework.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Debugging</td>
+            <td style="vertical-align: top;">Do extensive debugging of
+all modules.</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <th><a name="requirements">LIBMAPI</a></th>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+      <table cellpadding="2" cellspacing="2" border="1"
+ style="text-align: left; width: 90%;">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">Memory mapped packet socket<br>
+            </td>
+            <td style="vertical-align: top;">Implement libmapi to mmap
+the packets and do not copy from kernel to userspace. Substancial
+performance improvement.<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Last modified: 26/6/2003 <br>
+<br>
+<hr>
+</body>
+</html>

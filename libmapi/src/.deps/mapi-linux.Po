@@ -1,0 +1,231 @@
+mapi-linux.o mapi-linux.o: linux/mapi-linux.c /usr/include/errno.h \
+  /usr/include/features.h /usr/include/sys/cdefs.h \
+  /usr/include/gnu/stubs.h /usr/include/bits/errno.h \
+  /usr/include/linux/errno.h /usr/include/asm/errno.h \
+  /usr/include/stdlib.h \
+  /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stddef.h \
+  /usr/include/sys/types.h /usr/include/bits/types.h \
+  /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h \
+  /usr/include/time.h /usr/include/endian.h /usr/include/bits/endian.h \
+  /usr/include/sys/select.h /usr/include/bits/select.h \
+  /usr/include/bits/sigset.h /usr/include/bits/time.h \
+  /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/sched.h /usr/include/alloca.h /usr/include/unistd.h \
+  /usr/include/bits/posix_opt.h /usr/include/bits/confname.h \
+  /usr/include/getopt.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+  /usr/include/string.h /usr/include/bits/string.h \
+  /usr/include/bits/string2.h /usr/include/sys/socket.h \
+  /usr/include/sys/uio.h /usr/include/bits/uio.h \
+  /usr/include/bits/socket.h \
+  /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/limits.h \
+  /usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/syslimits.h \
+  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+  /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h \
+  /usr/include/asm/socket.h /usr/include/asm/sockios.h \
+  /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h \
+  /usr/include/asm/ioctls.h /usr/include/asm/ioctl.h \
+  /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h \
+  /usr/include/netinet/in.h /usr/include/stdint.h \
+  /usr/include/bits/wchar.h /usr/include/bits/in.h \
+  /usr/include/bits/byteswap.h /usr/include/linux/if_ether.h \
+  /usr/include/linux/if_packet.h /usr/include/linux/types.h \
+  /usr/include/linux/posix_types.h /usr/include/linux/stddef.h \
+  /usr/include/asm/posix_types.h /usr/include/asm/types.h \
+  /usr/include/net/if.h ../src/include/mapi.h \
+  /usr/local/include/linux/mapi/ioctl.h /usr/include/linux/fs.h \
+  /usr/include/linux/config.h /usr/include/linux/linkage.h \
+  /usr/include/linux/wait.h /usr/include/linux/vfs.h \
+  /usr/include/asm/statfs.h /usr/include/linux/net.h \
+  /usr/include/linux/socket.h /usr/include/linux/kdev_t.h \
+  /usr/include/linux/ioctl.h /usr/include/linux/list.h \
+  /usr/include/linux/dcache.h /usr/include/linux/stat.h \
+  /usr/include/linux/cache.h /usr/include/asm/cache.h \
+  /usr/include/linux/string.h /usr/include/linux/filter.h \
+  /usr/local/include/linux/mapi/prof.h /usr/include/linux/smp.h \
+  /usr/local/include/linux/mapi/log.h linux/mapi-util.h \
+  linux/mapi-filter.h /usr/include/net/bpf.h linux/mapi-linux.h
+
+/usr/include/errno.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/stdlib.h:
+
+/usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/stddef.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/alloca.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/bits/fcntl.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/sys/socket.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/bits/uio.h:
+
+/usr/include/bits/socket.h:
+
+/usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/limits.h:
+
+/usr/lib/gcc-lib/i386-redhat-linux/3.2.2/include/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/sockaddr.h:
+
+/usr/include/asm/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/sys/ioctl.h:
+
+/usr/include/bits/ioctls.h:
+
+/usr/include/asm/ioctls.h:
+
+/usr/include/asm/ioctl.h:
+
+/usr/include/bits/ioctl-types.h:
+
+/usr/include/sys/ttydefaults.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/bits/in.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/linux/if_ether.h:
+
+/usr/include/linux/if_packet.h:
+
+/usr/include/linux/types.h:
+
+/usr/include/linux/posix_types.h:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/asm/posix_types.h:
+
+/usr/include/asm/types.h:
+
+/usr/include/net/if.h:
+
+../src/include/mapi.h:
+
+/usr/local/include/linux/mapi/ioctl.h:
+
+/usr/include/linux/fs.h:
+
+/usr/include/linux/config.h:
+
+/usr/include/linux/linkage.h:
+
+/usr/include/linux/wait.h:
+
+/usr/include/linux/vfs.h:
+
+/usr/include/asm/statfs.h:
+
+/usr/include/linux/net.h:
+
+/usr/include/linux/socket.h:
+
+/usr/include/linux/kdev_t.h:
+
+/usr/include/linux/ioctl.h:
+
+/usr/include/linux/list.h:
+
+/usr/include/linux/dcache.h:
+
+/usr/include/linux/stat.h:
+
+/usr/include/linux/cache.h:
+
+/usr/include/asm/cache.h:
+
+/usr/include/linux/string.h:
+
+/usr/include/linux/filter.h:
+
+/usr/local/include/linux/mapi/prof.h:
+
+/usr/include/linux/smp.h:
+
+/usr/local/include/linux/mapi/log.h:
+
+linux/mapi-util.h:
+
+linux/mapi-filter.h:
+
+/usr/include/net/bpf.h:
+
+linux/mapi-linux.h:

@@ -1,0 +1,43 @@
+MAPI_MODULE_DIR=/current/mapi/module
+KVERS=2.4.21perfcnt
+KSRC=/lib/modules/2.4.21perfcnt/build
+
+KSERIES=2.4
+
+ifeq "$(KSERIES)" "2.6"
+
+obj-m += check/
+obj-m += cooking/
+obj-m += count/
+obj-m += filter/
+obj-m += flow/
+obj-m += logging/
+obj-m += meter/
+obj-m += performance/
+obj-m += print/
+obj-m += save/
+obj-m += search/
+obj-m += tree/
+
+else
+
+subdir-m += check	\
+	    cooking	\
+	    count	\
+	    filter	\
+	    flow	\
+	    logging	\
+	    meter	\
+	    performance	\
+	    print	\
+	    save	\
+	    search	\
+	    tree
+
+TOPDIR := $(KSRC)
+CONFIG_SHELL := TOPDIR=$(KSRC) /bin/bash
+include $(KSRC)/Rules.make
+
+endif
+
+# FIXME: deps

@@ -1,0 +1,48 @@
+TOPDIR := $(shell pwd)
+
+KERNELDIR  := /usr/src/linux-2.4.20
+HPATH       = $(KERNELDIR)/include
+IPATH       = $(TOPDIR)/include
+VERSION     = $(shell awk -F\" '/REL/ {print $$2}' $(KERNELDIR)/include/linux/version.h)
+
+include $(KERNELDIR)/.config
+
+OBJ1 := mmap_dev_nf.o
+OBJ2 := mmap_dev_pk.o
+
+LD		= ld
+CC		= gcc
+CFLAGS          = -D__KERNEL__ -DLINUX -DMODULE -Wall -O2 -fomit-frame-pointer
+CFLAGS         += -I$(HPATH) -I$(IPATH) -c -DDEBUG
+MODNAME1        = mmap_device_nf.o
+MODNAME2        = mmap_device_pk.o
+
+ifdef CONFIG_SMP
+	CFLAGS += -D__SMP__ -DSMP
+endif
+
+ifdef CONFIG_MODVERSIONS
+	CFLAGS += -DMODVERSIONS -include $(KERNELDIR)/include/linux/modversions.h
+endif
+
+.PHONY: all core mrproper clean
+
+export LD CC CFLAGS HPATH TOPDIR
+
+all: core $(patsubst %, _dir_%, $(SUBDIRS))
+
+core: $(OBJ1) $(OBJ2) include/mmap_dev.h
+	$(LD) -r $(OBJ1) -o $(MODNAME1)
+	$(LD) -r $(OBJ2) -o $(MODNAME2)
+	
+mrproper:
+	find . \( -name '*.[o]' -or -name core -or -name '.*~' -or -name .depend	\
+		  -name '*.c.cdep' -or -name '*.graph' \) -type f -print \
+		| xargs rm -f
+	\rm -f $(DEP) $(MODVERFILE) $(MODINCL)/*.ver $(MODINCL)/*.stamp
+
+clean:
+	find . \( -name '*.[o]' -or -name core -or -name '.*~' \) -type f -print	\
+		| xargs rm -f
+
+.DELETE_ON_ERROR:

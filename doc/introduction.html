@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta name="generator"
+ content="HTML Tidy for Linux/x86 (vers 1st February 2003), see www.w3.org">
+  <title>Monitoring API, Introduction</title>
+  <link rel="STYLESHEET" type="text/css" href="mapi.css">
+  <meta name="author" content="Konstantinos Xinidis">
+</head>
+<body bgcolor="#ffffff"
+ onload="if (window != window.top) {top.location.href=location.href }">
+<!-- $Id: introduction.html,v 1.1 2003/10/06 16:03:50 xinidis Exp $ -->
+<h1>Monitoring API (MAPI)</h1>
+<p align="center"> <small>[&nbsp;&nbsp; <a href="#features">Features</a>
+&nbsp;&nbsp;|&nbsp;&nbsp; <a href="#authors">Authors</a>
+&nbsp;&nbsp;|&nbsp;&nbsp; <a href="#license">Licensing</a>
+&nbsp;&nbsp;|&nbsp;&nbsp; <a href="index.html">Home</a> &nbsp;&nbsp;]</small> </p>
+<center>
+<table summary="Features, Authors, Licensing" cellspacing="0"
+ cellpadding="5" style="width: 90%;" border="1">
+  <tbody>
+    <tr>
+      <th> <a name="features">Features</a> </th>
+    </tr>
+    <tr>
+      <td> The functions already implemented in MAPI as kernel modules
+are<br>
+      <br>
+      <table cellpadding="2" cellspacing="2" border="1"
+ style="text-align: left; width: 70%;">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;">Count packets</td>
+            <td style="vertical-align: top;">Counts total packets
+received until know.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Count bytes</td>
+            <td style="vertical-align: top;">Counts total bytes
+received until know.</td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Packets in interval</td>
+            <td style="vertical-align: top;">Counts all packets
+received in a specified interval.</td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Bytes in interval</td>
+            <td style="vertical-align: top;">Counts all bytes received
+in a specified interval.</td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Rotating and additive hash</td>
+            <td style="vertical-align: top;">Receives or ignores
+packets depending on the return value of the hash function.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Exb string search algorithm</td>
+            <td style="vertical-align: top;">Receives only the packets
+with the given payload.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Boyer Moore string search
+algorithm</td>
+            <td style="vertical-align: top;">Receives only the packets
+with the given payload.</td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Log packets</td>
+            <td style="vertical-align: top;">Logs all packets in the
+specified file.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Sample packets<br>
+            </td>
+            <td style="vertical-align: top;">Samples the stream of
+packets. Application can select between probabilistic or deterministic
+sampling.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Packet save<br>
+            </td>
+            <td style="vertical-align: top;">Trims packets according to
+the specified parameters.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">Subflows<br>
+            </td>
+            <td style="vertical-align: top;">Categorizes IP traffic
+into quads with same source IP, destination IP, source port, destination
+port and protocol. It keeps statistics about quads such as total
+packets seen, total bytes seen, mean packet size etc. Also it has an
+expiration mechanism about this quads.<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">IP reassembly<br>
+            </td>
+            <td style="vertical-align: top;">Reassembles IP traffic,
+ignores packet if IP checksum is not valid etc. (Almost everything IP
+stack does)<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">UDP reassembly<br>
+            </td>
+            <td style="vertical-align: top;">Removes UDP headers after
+the packet has already succesfully passed from IP reassembly function. </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <th> <a name="authors">Author<br>
+      </a> </th>
+    </tr>
+    <tr>
+      <td> MAPI has been written by Konstantinos Xinidis.  You can
+contact me by e-mail on xinidis@csd.uoc.gr.  I'd be happy  to get any
+feedback that you may  have  on MAPI,  including proper  documentation,
+bug  reports, enhancements and suggestions for these, and bug fixes, of
+course.</td>
+    </tr>
+    <tr>
+      <th> <a name="license">Licensing</a> </th>
+    </tr>
+    <tr>
+      <td>MAPI is <a href="http://www.opensource.org">Open Source</a>
+software released under the <a href="http://www.gnu.org">GNU</a> General
+Public License. </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p> Last modified: 26/6/2003 </p>
+</body>
+</html>

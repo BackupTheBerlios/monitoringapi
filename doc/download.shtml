@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy, see www.w3.org">
+  <title>Monitoring API, Download</title>
+  <link rel="STYLESHEET" type="text/css" href="mapi.css">
+  <meta name="author" content="Konstantinos Xinidis">
+</head>
+<body
+ onload="if (window != window.top) {top.location.href=location.href }">
+<table summary="Title" width="100%" cellspacing="0" cellpadding="0"
+ border="0">
+  <tbody>
+    <tr>
+      <td align="left">
+      <h1>Downloading MAPI</h1>
+      </td>
+      <td valign="middle" align="right"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="center"> <small>[&nbsp;&nbsp; <a href="#requirements">Requirements</a>
+&nbsp;&nbsp;|&nbsp;&nbsp; <a href="#sources"> Source&nbsp;Code</a>
+&nbsp;&nbsp;|&nbsp;&nbsp; <a href="index.html"> Home</a> &nbsp;&nbsp;]<br>
+</small></p>
+<table align="center" width="90%" summary="" cellspacing="0"
+ cellpadding="5" border="1">
+  <tbody>
+    <tr>
+      <th><a name="requirements">Requirements</a></th>
+    </tr>
+    <tr>
+      <td> MAPI requires Linux Kernel v2.4<br>
+      </td>
+    </tr>
+    <tr>
+      <th><a name="binaries">Source code</a></th>
+    </tr>
+    <tr>
+      <td><!-- TODO move this coloring to etherape.css --><a
+ href="src/mapimod.tar.gz">MAPI kernel module v0.1</a><br>
+      <a href="src/libmapi.tar.gz"> MAPI library (libmapi) v0.1</a><br>
+Last modified: 26/6/2003<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+&nbsp;Last modified: 26/6/2003<br>
+<br>
+<br>
+<br>
+</body>
+</html>

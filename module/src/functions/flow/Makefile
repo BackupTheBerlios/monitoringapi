@@ -1,0 +1,38 @@
+MAPI_MODULE_DIR=/current/mapi/module
+KVERS=2.4.21perfcnt
+KSRC=/lib/modules/2.4.21perfcnt/build
+
+include $(MAPI_MODULE_DIR)/.config
+
+EXTRA_CFLAGS= -finline-functions -funroll-all-loops -fomit-frame-pointer -D__NO_VERSION__ -I$(MAPI_MODULE_DIR)/src/include	\
+	     -Iinclude -Isubflow/include 
+
+KSERIES=2.4
+
+ifeq "$(KSERIES)" "2.6"
+
+EXTRA_CFLAGS += -I$(src)/include -I$(src)/subflow/include
+
+obj-$(CONFIG_MAPI_FLOW_KEY) += flow_key.o
+obj-$(CONFIG_MAPI_FLOW_RAW) += flow_raw.o
+
+obj-$(CONFIG_MAPI_SUBFLOW)	+= subflow/
+obj-$(CONFIG_MAPI_FLOW_REPORT)	+= report/
+
+else
+
+export-objs = flow_key.o
+ 
+obj-$(CONFIG_MAPI_FLOW_KEY) += flow_key.o
+obj-$(CONFIG_MAPI_FLOW_RAW) += flow_raw.o
+
+subdir-$(CONFIG_MAPI_SUBFLOW) += subflow
+subdir-$(CONFIG_MAPI_SUBFLOW) += report
+
+TOPDIR := $(KSRC)
+CONFIG_SHELL := TOPDIR=$(KSRC) /bin/bash
+include $(KSRC)/Rules.make
+
+endif
+
+# FIXME: deps

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta name="generator"
+ content="HTML Tidy for Linux/x86 (vers 1st February 2003), see www.w3.org">
+  <title>Monitoring API</title>
+  <link rel="STYLESHEET" type="text/css" href="mapi.css">
+  <meta name="author" content="Konstantinos Xinidis">
+</head>
+<body
+ onload="if (window != window.top) {top.location.href=location.href }">
+&nbsp;
+<table summary="Title" width="100%" cellspacing="0" cellpadding="0"
+ border="0">
+  <tbody>
+    <tr>
+      <td align="left">
+      <h1>Monitoring API (MAPI)</h1>
+      <span id="subtitle">A network           monitor library for
+gigabit networks</span> </td>
+      <td align="left"> <br>
+      </td>
+      <td valign="middle" align="right"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- $Id: index.html,v 1.1 2003/10/06 16:03:50 xinidis Exp $ -->
+<center>
+<table summary="Information, mini-screenshot, description and news"
+ width="100%" cellspacing="15" border="0">
+  <tbody>
+    <tr valign="top">
+      <td width="25%">
+      <table border="1" style="width: 100%;" cellpadding="0"
+ cellspacing="0" summary="">
+        <tbody>
+          <tr>
+            <th> &nbsp;Information </th>
+          </tr>
+          <tr>
+            <td>
+            <table summary="" width="100%" cellpadding="5" border="0">
+              <tbody>
+                <tr>
+                  <td> <b>Introduction</b><br>
+                  <dl>
+                    <dd> <small><a href="introduction.html">Features<br>
+                      </a><a href="todo.html">Todo</a></small> </dd>
+                    <dd><small><a href="introduction.html#authors">Author</a></small></dd>
+                    <dd> <small><a href="introduction.html#license">Licensing<br>
+                      <br>
+                      </a></small></dd>
+                  </dl>
+                  <p> <b>Documentation</b> </p>
+                  <dl>
+                    <dd> <small><a href="documentation.html">kernel
+modules</a></small><br>
+                      <small><a href="documentation.html">libmapi</a></small><br>
+                    </dd>
+                  </dl>
+                  <p> <b>Download</b> </p>
+                  <dl>
+                    <dd> <small><a href="download.shtml">Requirements</a></small></dd>
+                    <dd><small><a href="download.shtml#sources">Source&nbsp;Code</a><br>
+                      </small> </dd>
+                  </dl>
+                  <p> <b>Resources</b> </p>
+                  <dl>
+                    <dd> <small><a href="FAQ.html">F.A.Q.</a></small> </dd>
+                    <dd> <small> Mailing&nbsp;Lists</small> </dd>
+                    <dd> <small> Public Forums</small> </dd>
+                    <dd> <br>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dd><br>
+                    </dd>
+                    <dd><br>
+                    </dd>
+                    <dd><br>
+                    </dd>
+                  </dl>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="" cellspacing="0" cellpadding="0" width="100%"
+ border="1">
+        <tbody>
+          <tr>
+            <th> &nbsp;Description </th>
+          </tr>
+          <tr>
+            <td>
+            <table summary="" width="100%" cellpadding="5" border="0">
+              <tbody>
+                <tr>
+                  <td>MAPI can be broken down into two major components.<br>
+                  <ul>
+                    <li>Linux kernel modules.</li>
+                  </ul>
+                  <div style="margin-left: 40px;">Linux kernel modules
+extends the functionality of PF_PACKET protocol family. To be more
+specific MAPI gives the ability to apply functions to packets. Such
+functions can do many things such as<br>
+                  <ul>
+                    <li>Count packets.</li>
+                    <li>Count bytes.</li>
+                    <li>Log packets.</li>
+                    <li>Search for a string.</li>
+                    <li>Reassemble IP fragments.</li>
+                    <li>Reconstruct UDP/IP or TCP/IP streams.</li>
+                    <li>Sample packets.<br>
+                    </li>
+                  </ul>
+                  </div>
+                  <ul>
+                    <li>User space library.</li>
+                  </ul>
+                  <div style="margin-left: 40px;">Gives a friendly
+interface to users of MAPI. So the user is not supposed to know the
+ioctls used by MAPI etc.<br>
+                  </div>
+                  <br>
+The idea behind MAPI is that the network monitoring application will
+use some of the predefined functions and will not require to copy all
+packets to user space. So a great performance advantage will be
+gained.If such a function does not exist application can load &nbsp;its
+own if this is permitted.<br>
+                  <br>
+MAPI gives an interface with which applications can assign jobs, remove
+jobs, read results and read packets. Also, as already written MAPI gives
+an interface which leverages the loading of new functions.<br>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td><br>
+            </td>
+          </tr>
+          <tr>
+            <th> &nbsp;News </th>
+          </tr>
+          <tr>
+            <td>
+            <table summary="" width="100%" cellpadding="5" border="0">
+              <tbody>
+                <tr>
+                  <td> <br>
+                  <h3> Overview of MAPI 0.1 (Thursday 26-6-2003): </h3>
+                  <ul>
+                    <li> Initial version. </li>
+                  </ul>
+                  <br>
+                  <dl>
+                    <dd> <br>
+                    </dd>
+                  </dl>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p> <small><a href="http://www.csd.uoc.gr/%7Exinidis">Konstantinos
+Xinidis</a><br>
+Last modified: 26/6/2003<br>
+</small></p>
+</body>
+</html>

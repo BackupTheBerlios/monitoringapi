@@ -1,0 +1,151 @@
+/*
+ *	Copyright (C) 2002, 2003 Slava Astashonok <sla@0n.ru>
+ *
+ *	This program is free software; you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License.
+ */
+
+#include <linux/skbuff.h>
+
+#include <linux/mapi/ioctl.h>
+
+#include <netflow.h>
+
+static u16 netflow1_header[] = 
+{
+	NETFLOW_VERSION,
+	NETFLOW_COUNT,
+	NETFLOW_UPTIME,
+	NETFLOW_UNIX_SECS,
+	NETFLOW_UNIX_NSECS
+};
+
+static u16 netflow1_flow[] = 
+{
+	NETFLOW_IPV4_SRC_ADDR,
+	NETFLOW_IPV4_DST_ADDR,
+	NETFLOW_IPV4_NEXT_HOP,
+	NETFLOW_INPUT_SNMP,
+	NETFLOW_OUTPUT_SNMP,
+	NETFLOW_PKTS_32,
+	NETFLOW_BYTES_32,
+	NETFLOW_FIRST_SWITCHED,
+	NETFLOW_LAST_SWITCHED,
+	NETFLOW_L4_SRC_PORT,
+	NETFLOW_L4_DST_PORT,
+	NETFLOW_PAD16,
+	NETFLOW_PROT,
+	NETFLOW_TOS,
+	NETFLOW_TCP_FLAGS,
+	NETFLOW_PAD32,
+	NETFLOW_PAD32
+};
+
+static u16 netflow5_header[] = 
+{
+	NETFLOW_VERSION,
+	NETFLOW_COUNT,
+	NETFLOW_UPTIME,
+	NETFLOW_UNIX_SECS,
+	NETFLOW_UNIX_NSECS,
+	NETFLOW_FLOW_SEQUENCE,
+	NETFLOW_ENGINE_TYPE,
+	NETFLOW_ENGINE_ID,
+	NETFLOW_PAD16
+};
+
+static u16 netflow5_flow[] = 
+{
+	NETFLOW_IPV4_SRC_ADDR,
+	NETFLOW_IPV4_DST_ADDR,
+	NETFLOW_IPV4_NEXT_HOP,
+	NETFLOW_INPUT_SNMP,
+	NETFLOW_OUTPUT_SNMP,
+	NETFLOW_PKTS_32,
+	NETFLOW_BYTES_32,
+	NETFLOW_FIRST_SWITCHED,
+	NETFLOW_LAST_SWITCHED,
+	NETFLOW_L4_SRC_PORT,
+	NETFLOW_L4_DST_PORT,
+	NETFLOW_PAD8,
+	NETFLOW_TCP_FLAGS,
+	NETFLOW_PROT,
+	NETFLOW_TOS,
+	NETFLOW_SRC_AS,
+	NETFLOW_DST_AS,
+	NETFLOW_SRC_MASK,
+	NETFLOW_DST_MASK,
+	NETFLOW_PAD16
+};
+
+static u16 netflow7_header[] = 
+{
+	NETFLOW_VERSION,
+	NETFLOW_COUNT,
+	NETFLOW_UPTIME,
+	NETFLOW_UNIX_SECS,
+	NETFLOW_UNIX_NSECS,
+	NETFLOW_FLOW_SEQUENCE,
+	NETFLOW_ENGINE_TYPE,
+	NETFLOW_PAD32
+};
+
+static u16 netflow7_flow[] = 
+{
+	NETFLOW_IPV4_SRC_ADDR,		//4
+	NETFLOW_IPV4_DST_ADDR,		//4
+	NETFLOW_IPV4_NEXT_HOP,		//4
+	NETFLOW_INPUT_SNMP,		//2
+	NETFLOW_OUTPUT_SNMP,		//2
+	NETFLOW_PKTS_32,		//4
+	NETFLOW_BYTES_32,		//4
+	NETFLOW_FIRST_SWITCHED,		//4
+	NETFLOW_LAST_SWITCHED,		//4
+	NETFLOW_L4_SRC_PORT,		//2
+	NETFLOW_L4_DST_PORT,		//2
+	NETFLOW_FLAGS7_1,
+	NETFLOW_TCP_FLAGS,
+	NETFLOW_PROT,
+	NETFLOW_TOS,
+	NETFLOW_SRC_AS,
+	NETFLOW_DST_AS,
+	NETFLOW_SRC_MASK,
+	NETFLOW_DST_MASK,
+	NETFLOW_FLAGS7_2
+};
+
+struct netflow netflow1 = 
+{
+	NETFLOW1_VERSION,
+	NETFLOW1_HEADER_SIZE,
+	NETFLOW1_MAX_FLOWS,
+	NETFLOW1_FLOW_SIZE,
+	sizeof(netflow1_header) / sizeof(u16),
+	netflow1_header,
+	sizeof(netflow1_flow) / sizeof(u16),
+	netflow1_flow
+};
+
+struct netflow netflow5 = 
+{
+	NETFLOW5_VERSION,
+	NETFLOW5_HEADER_SIZE,
+	NETFLOW5_MAX_FLOWS,
+	NETFLOW5_FLOW_SIZE,
+	sizeof(netflow5_header) / sizeof(u16),
+	netflow5_header,
+	sizeof(netflow5_flow) / sizeof(u16),
+	netflow5_flow
+};
+
+struct netflow netflow7 = 
+{
+	NETFLOW7_VERSION,
+	NETFLOW7_HEADER_SIZE,
+	NETFLOW7_MAX_FLOWS,
+	NETFLOW7_FLOW_SIZE,
+	sizeof(netflow7_header) / sizeof(u16),
+	netflow7_header,
+	sizeof(netflow7_flow) / sizeof(u16),
+	netflow7_flow
+};

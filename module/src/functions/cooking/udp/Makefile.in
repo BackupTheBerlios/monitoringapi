@@ -1,0 +1,33 @@
+MAPI_MODULE_DIR=@MAPI_MODULE_DIR@
+KVERS=@KVERS@
+KSRC=@KSRC@
+
+EXTRA_CFLAGS=@MODCFLAGS@ -D__NO_VERSION__ -I$(MAPI_MODULE_DIR)/src/include -Iinclude
+
+KSERIES=@KSERIES@
+
+ifeq "$(KSERIES)" "2.6"
+
+EXTRA_CFLAGS += -I$(src)/include
+
+obj-m += udp_cooking.o
+udp_cooking-objs := cook_udp.o udp.o
+
+else
+
+O_TARGET := udp_cooking.o
+
+obj-y := cook_udp.o	\
+	 udp.o
+
+obj-m := $(O_TARGET)
+O_OBJS := $(obj-y)
+M_OBJS := $(O_TARGET)
+
+TOPDIR := $(KSRC)
+CONFIG_SHELL := TOPDIR=$(KSRC) /bin/bash
+include $(KSRC)/Rules.make
+
+endif
+
+# FIXME: deps
